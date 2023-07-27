@@ -1,12 +1,11 @@
 # Python code to ask OpenAI questions about Security Best Practices
 
 import openai
-import os
-import time
 import logging
 import inquirer
 import json
 import getpass
+
 
 def prompt_questions():
     """Function for prompting questions to the user"""
@@ -42,7 +41,7 @@ def prompt_questions():
 
 def secure_ai_ask(model_string, answer_1, answer_2, answer_3, answer_4, answer_5):
     """Function to run Secure AI Ask"""
-    additional_context = "Perform a security review and provide guidance and recommendations based on the following information. \n\n" + " Are you creating any resources that will be public to the internet? \n\n" + answer_1 + "\n\n" + "What AWS services or resources will you be using? \n\n" + answer_2 + "\n\n" + "What programming or languages are being used in this project? \n\n" + answer_3 + "\n\n" + "Does your application or service require authentication? \n\n" + answer_4 + "\n\n" + "Does your service handle or store customer data? If so, what types? \n\n" + answer_5 + "\n\n"
+    additional_context = "Perform a detailed security review and provide technical guidance, to include example code samples, and recommendations based on the following information: \n\n" + " Are you creating any resources that will be public to the internet? \n\n" + answer_1 + "\n\n" + "What AWS services or resources will you be using? \n\n" + answer_2 + "\n\n" + "What programming or languages are being used in this project? \n\n" + answer_3 + "\n\n" + "Does your application or service require authentication? \n\n" + answer_4 + "\n\n" + "Does your service handle or store customer data? If so, what types? \n\n" + answer_5 + "\n\n"
     try:
         # text-davinci-002 model code
         if model_string == 'text-davinci-002':
@@ -75,7 +74,7 @@ def secure_ai_ask(model_string, answer_1, answer_2, answer_3, answer_4, answer_5
             )
             print(response["choices"][0]["message"]["content"])
         # gpt-4 model code
-        elif model_string == 'gpt-3.5-turbo':
+        elif model_string == 'gpt-4':
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
