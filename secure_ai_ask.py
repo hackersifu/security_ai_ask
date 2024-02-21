@@ -76,7 +76,7 @@ def secure_ai_ask(model_string, answer_1, answer_2, answer_3, answer_4, answer_5
         # gpt-4 model code
         elif model_string == 'gpt-4':
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4",
                 messages=[
                             {
                                 "role": "user", 
