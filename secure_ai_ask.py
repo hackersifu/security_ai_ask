@@ -14,7 +14,7 @@ def prompt_questions():
         openai.api_key = getpass.getpass('API Key:')
         print("Are you creating any resources that will be public to the internet?")
         answer_1 = input()
-        print("What AWS services or resources will you be using?")
+        print("What cloud (e.g. AWS, Azure, Google Cloud) services or resources will you be using?")
         answer_2 = input()
         print("What programming or languages are being used in this project?")
         answer_3 = input()
