@@ -27,7 +27,7 @@ def prompt_questions():
         model_selection = [
             inquirer.List('model',
                         message="Please select the model you would like to use for this session.",
-                        choices=['text-davinci-002', 'gpt-3.5-turbo', 'gpt-4', 'gpt-4o'],
+                        choices=['text-davinci-002', 'gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo'],
                         ),
         ]
         # Data type conversion to JSON, then to string to get the model selection
@@ -91,9 +91,9 @@ def secure_ai_ask(model_string, answer_1, answer_2, answer_3, answer_4, answer_5
             )
             print(response["choices"][0]["message"]["content"])
         # gpt-4o model code
-        elif model_string == 'gpt-4o':
+        elif model_string == 'gpt-4-turbo':
             response = openai.ChatCompletion.create(
-                model="gpt-4o",
+                model="gpt-4-turbo",
                 messages=[
                             {
                                 "role": "user", 
